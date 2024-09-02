@@ -1,1 +1,38 @@
 # Your Solution
+version: '3.8'
+
+services:
+  book_catalog:
+    build:
+      context: ./book_catalog
+    ports:
+      - "8000:80"
+    environment:
+      - POSTGRES_DB=books
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=postgres
+    depends_on:
+      - postgres
+
+  inventory_management:
+    build:
+      context: ./inventory_management
+    ports:
+      - "8001:80"
+    environment:
+      - POSTGRES_DB=inventory
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=books
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
