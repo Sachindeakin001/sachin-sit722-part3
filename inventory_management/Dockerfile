@@ -6,7 +6,7 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Copy the requirements file to the container
-COPY inventory_management/requirements.txt requirements.txt
+COPY  requirements.txt .
 
 # Install the required dependencies
 RUN pip install --no-cache-dir -r requirements.txt
