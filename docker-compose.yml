@@ -1,5 +1,5 @@
 # Your Solution
-version: '3'
+# version: '3'
 services:
 
   book-catalog:
