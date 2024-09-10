@@ -1,21 +1,21 @@
-# Dockerfile for book_catalog microservice
-# Use the official Python image from the Docker Hub
+# Use an official Python runtime as a parent image
 FROM python:3.10-slim
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /book_catalog
 
-# Copy the requirements file to the container
-COPY  requirements.txt .
+# Copy the requirements.txt file into the container at /app
+COPY requirements.txt .
 
-# Install the required dependencies
+# Install any dependencies specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code to the container
-COPY book_catalog/ .
+# Copy the current directory contents into the container at /app
+COPY app/ .
 
-# Expose the port the app runs on
-EXPOSE 8000
+# Make port 80 available to the world outside this container
+EXPOSE 80
 
-# Command to run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# Command to run the FastAPI app with Uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
