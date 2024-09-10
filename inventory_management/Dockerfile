@@ -6,13 +6,13 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Copy the requirements file to the container
-COPY book_catalog/requirements.txt requirements.txt
+COPY inventory_management/requirements.txt requirements.txt
 
 # Install the required dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code to the container
-COPY book_catalog/ .
+COPY inventory_management/ .
 
 # Expose the port the app runs on
 EXPOSE 8000
