@@ -12,7 +12,7 @@ services:
       - "8081:8081"
     environment:
       - PORT=8081
-      - DATABASE_URL=postgresql://part3sit722_user:8LnpCURz8S4KqSXKjgPGDzBlm7zUiOPi@dpg-creq8tggph6c73eukqg0-a.oregon-postgres.render.com/part3sit722
+      - DATABASE_URL=postgresql://db_722part3_user:Mt1Ug8L0QPuBQMcEwLi2kBINlp6QX30o@dpg-crg3nraj1k6c739cd3b0-a.oregon-postgres.render.com/db_722part3
     restart: "no"
 
   inventory-management:
@@ -25,5 +25,5 @@ services:
      - "8082:8082"
     environment:
       - PORT=8082
-      - DATABASE_URL=postgresql://part3sit722_user:8LnpCURz8S4KqSXKjgPGDzBlm7zUiOPi@dpg-creq8tggph6c73eukqg0-a.oregon-postgres.render.com/part3sit722
+      - DATABASE_URL=postgresql://db_722part3_user:Mt1Ug8L0QPuBQMcEwLi2kBINlp6QX30o@dpg-crg3nraj1k6c739cd3b0-a.oregon-postgres.render.com/db_722part3
     restart: "no"
