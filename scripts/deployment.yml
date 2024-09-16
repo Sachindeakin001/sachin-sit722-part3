@@ -16,11 +16,13 @@ spec:
     spec:
       containers:
       - name: book-catalog
-        image: db722part3.azurecr.io/book-catalog:latest
-        imagePullPolicy: Always
+        image: sit722dbpart3.azurecr.io/book-catalog:book12
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
         env:
-        - name: PORT
-          value: "8081"
+        # - name: PORT
+        #   value: "8081"
         - name: DATABASE_URL
           value: "postgresql://db722part3_user:65drNij74pm5pGOMP8g3MVOUZhGxe290@dpg-crio2u68ii6s73f716pg-a.oregon-postgres.render.com/db722part3"
 ---
@@ -34,8 +36,8 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 8088
-      targetPort: 8081
+      port: 8000
+      # targetPort: 8081
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -53,13 +55,13 @@ spec:
     spec:
       containers:
       - name: inventory-management
-        image: db722part3.azurecr.io/inventory-management:latest
-        imagePullPolicy: Always
+        image: sit722dbpart3.azurecr.io/inventory-management:book123
+        imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8082
+        - containerPort: 8001
         env:
-        - name: PORT
-          value: "8082"
+        # - name: PORT
+        #   value: "8082
         - name: DATABASE_URL
           value: "postgresql://db722part3_user:65drNij74pm5pGOMP8g3MVOUZhGxe290@dpg-crio2u68ii6s73f716pg-a.oregon-postgres.render.com/db722part3"
 ---
@@ -73,5 +75,5 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 8089
-      targetPort: 8082
+      port: 8001
+      # targetPort: 8082
