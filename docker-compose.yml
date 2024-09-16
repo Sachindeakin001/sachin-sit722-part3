@@ -1,4 +1,5 @@
 # Your Solution
+# Your Solution
 # version: '3'
 services:
 
@@ -9,10 +10,10 @@ services:
       dockerfile: Dockerfile
     container_name: book-catalog
     ports:
-      - "8081:8081"
+      - "8000:8000"
     environment:
-      - PORT=8081
-      - DATABASE_URL=postgresql://db_722part3_user:Mt1Ug8L0QPuBQMcEwLi2kBINlp6QX30o@dpg-crg3nraj1k6c739cd3b0-a.oregon-postgres.render.com/db_722part3
+      # - PORT=8081
+      - DATABASE_URL=postgresql://db722part3_user:65drNij74pm5pGOMP8g3MVOUZhGxe290@dpg-crio2u68ii6s73f716pg-a.oregon-postgres.render.com/db722part3
     restart: "no"
 
   inventory-management:
@@ -22,8 +23,8 @@ services:
       dockerfile: Dockerfile
     container_name: inventory-management
     ports:
-     - "8082:8082"
+     - "8001:8001"
     environment:
-      - PORT=8082
-      - DATABASE_URL=postgresql://db_722part3_user:Mt1Ug8L0QPuBQMcEwLi2kBINlp6QX30o@dpg-crg3nraj1k6c739cd3b0-a.oregon-postgres.render.com/db_722part3
+      # - PORT=8082
+      - DATABASE_URL=postgresql://db722part3_user:65drNij74pm5pGOMP8g3MVOUZhGxe290@dpg-crio2u68ii6s73f716pg-a.oregon-postgres.render.com/db722part3
     restart: "no"
